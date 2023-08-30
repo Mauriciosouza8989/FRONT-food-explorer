@@ -7,6 +7,9 @@ export const Container = styled.header`
     justify-content: space-between;
     background-color: ${({ theme })=> theme.COLORS.DARK_700};
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 9;
 
     >div h1{
         font-size: 2.1rem;

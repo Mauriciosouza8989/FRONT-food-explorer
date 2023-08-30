@@ -1,14 +1,15 @@
 import { styled } from "styled-components";
 
 export const Container = styled.header`
-    max-width: 100vw;
+    width: 100vw;
     padding: 2.8rem 2.4rem;
     display:flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: ${({ theme })=> theme.COLORS.DARK_600};
     align-items: center;
-    
-
+    position: sticky;
+    top: 0;
+    z-index: 9;
     >div h1{
         font-size: 2.1rem;
     }

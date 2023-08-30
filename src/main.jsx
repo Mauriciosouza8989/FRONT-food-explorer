@@ -7,9 +7,7 @@ import { Routes } from './routes';
 import { AuthProvider } from './hooks/auth';
 
 
-// import { Details } from './pages/Details'
-// import { SignUp } from './pages/SignUp'
-// import { Home } from './pages/Home';
+
 import theme from './styles/theme'
 
 

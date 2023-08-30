@@ -74,7 +74,7 @@ export function New(){
                         <p>Nome</p>
                         <Input onChange={e => setName(e.target.value)} type="text" id="nome" placeholder="Ex: Salada Ceasar" />
                     </div>
-                    <div className="categoria">
+                    <div className="category">
                         <p>Categoria</p>
                         <div>
                             <FiChevronDown/>

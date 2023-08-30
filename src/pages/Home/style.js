@@ -2,10 +2,24 @@ import { styled } from "styled-components";
 
 export const Container = styled.div`
     display: grid;
-    gap: 4rem;
-    position: relative;
+    gap: 3rem;
     >.DesktopHeader{
         display: none;
+    }
+    
+    section{
+        width: 100%;
+        display: flex;
+        position: relative;
+        z-index: 8;
+        margin-bottom: 5rem;
+        
+        >div::-webkit-scrollbar{
+        display: none;
+        overflow-y: hidden;
+        
+    }
+
     }
 
 
@@ -17,6 +31,7 @@ export const Container = styled.div`
         >.MobileHeader{
             display: none;
         }
+       
     }
     
 `
@@ -24,23 +39,64 @@ export const Container = styled.div`
 export const Main = styled.main`
     width: 100vw;
     height: 100%;
-    padding: 1.6rem;
+    
+    >div>section>.scroll-right, >div>section>.scroll-left{
+            display: none;
+    }
+
     font-family: "Popins", sans-serif;
 
-    >h2{
+    >div>h2{
         font-size: 1.8rem;
         font-weight: 300;
         margin-bottom: 2rem;
         letter-spacing: 1px;
+        margin-left: 1rem;
     }
+
+   
 
     @media (min-width:880px){
         padding: 12.4rem;
     }
+    @media (min-width:1100px){
+
+        >div>section>.scroll-left, >div>section>.scroll-right {
+            height: 95%;
+            width: 15rem;
+            display: inline-block;
+
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            top: 0;
+            z-index: 8;
+            border-radius: 5px 0 0 5px;
+            
+                >svg{
+                    font-size: 5rem;
+                }
+            
+            }
+            >div>section>.scroll-right{
+                right: 0;
+                display: grid;
+                align-items:center;
+                justify-content: end;
+                background: linear-gradient(to left, black,  rgba(0,0,0,.5), transparent 99%  );
+                
+            }
+            >div>section>.scroll-left{
+                display: grid;
+                align-items:center;
+                background: linear-gradient(to right, black,  rgba(0,0,0,.5), transparent 99% );
+            }
+    }
 
 `
 export const Presentation = styled.div`
-    width: 100%;
+    width: 90%;
+    margin: auto;
     height: 11rem;
     border-radius: .5rem;
     background-color: ${({theme})=> theme.COLORS.DARK_600};
@@ -57,7 +113,7 @@ export const Presentation = styled.div`
         position: absolute;
         left: -1.8rem;
         bottom: -.6rem;
-        
+        object-fit: cover;
     }
     >div{
         max-width: 64%;
@@ -80,6 +136,8 @@ export const Presentation = styled.div`
         }
     }
 
+    
+
     @media (min-width:650px){
         height: 16rem;
         >div{
@@ -96,6 +154,7 @@ export const Presentation = styled.div`
     }
 
     @media (min-width:880px) {
+        width: 100%;
 
         >div{
             >h2{
@@ -110,6 +169,7 @@ export const Presentation = styled.div`
     }
 
     @media (min-width:1080px){
+        width: 100%;
         height: 26rem;
         img{
             width: 50%;
@@ -117,6 +177,7 @@ export const Presentation = styled.div`
             left: -10rem;
             bottom: -1rem;
         }
+        
 
         >div{
             left: 45%;
@@ -126,11 +187,14 @@ export const Presentation = styled.div`
     
 `
 export const Products = styled.div`
-    max-width: 100%;
+    max-width: 100vw;
     margin-bottom: 2.4rem;
     display: flex;
     overflow-x: auto;
     gap: 2.7rem;
+    scroll-behavior: smooth;
+   
+    
     @media (min-width:880px){
         flex: 1;
     }

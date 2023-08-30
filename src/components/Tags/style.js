@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    
+    object-fit: cover;
     display: flex;
     align-items: center;
     justify-content: center;
     height:3.2rem;
     padding-left: .8rem;
     margin-left: 1rem;
+    margin-bottom: 1rem;
 
     background-color: ${({theme, isNew})=> isNew ? 'transparent' : theme.COLORS.LIGHT_700};
     color: ${({theme })=> theme.COLORS.LIGHT_200};

@@ -5,7 +5,7 @@ export const Container = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 1rem;
 `
 export const Label = styled.label`
     color: ${({ theme })=> theme.COLORS.LIGHT_400};

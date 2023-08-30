@@ -4,13 +4,18 @@ import { Title } from "../Title"
 import { ButtonText } from "../ButtonText"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../../hooks/auth"
+import { useEffect, useState } from "react"
+import { api } from "../../services/api"
+
 
 
 export function DesktopHeader({onChange}){
 
-    const { user } = useAuth()
+        const { user } = useAuth()
 
-    const navigate = useNavigate()
+        const navigate = useNavigate()
+        const [cart, setCart] = useState()
+
         function handleSignOut(){
             const ensure = confirm("Tem certeza que deseja sair da sua conta?")
             if (ensure){
@@ -40,7 +45,7 @@ export function DesktopHeader({onChange}){
             </Search>
             {
 
-               user.id == "1" ? <Button onClick={newPlate}>Novo prato</Button> : <Button><img src="https://i.ibb.co/2g3sXfL/Receipt.png" /><p>pedidos <span>({user.cart})</span></p></Button>
+               user.id == "1" ? <Button onClick={newPlate}>Novo prato</Button> : <Button><img src="https://i.ibb.co/2g3sXfL/Receipt.png" /><p>pedidos <span>({user.cart||0})</span></p></Button>
             }
 
             <ButtonText onClick={handleSignOut} title={<FiLogOut />} />

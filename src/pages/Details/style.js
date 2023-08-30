@@ -27,7 +27,16 @@ export const Main = styled.main`
     gap: 1.6rem;
     font-family: 'Poppins', sans-serif;
     position: relative;
-
+    .favorite{
+        position: absolute;
+        top: 3.4rem;
+        right: 5rem;
+        background: none;
+        border: none;
+        >svg{
+            font-size: 2.4rem;
+        }
+    }
     >a{
         position: absolute;
         top: 3rem;
@@ -177,10 +186,10 @@ export const Button = styled.button`
     border: none;
     border-radius: .6rem;
     padding: 1rem 3rem;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     background-color: ${({ theme })=> theme.COLORS.THINTS.TOMATO_100};
     color: ${({ theme })=> theme.COLORS.LIGHT_100};
-    font-size: 1rem;
+    
     line-height: 2.4rem;
     letter-spacing: 0.5px;
     >img{

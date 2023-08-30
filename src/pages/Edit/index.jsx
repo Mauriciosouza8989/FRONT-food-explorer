@@ -10,7 +10,7 @@ import { Button } from "../../components/Button"
 import { Tags } from "../../components/Tags"
 import { useState, useEffect } from "react"
 import { api } from "../../services/api"
-import { Ingredient } from "../Details/style"
+
 
 export function Edit(){
     const [name, setName] = useState("")
@@ -47,7 +47,9 @@ export function Edit(){
         data.append("category", category)
         data.append("price", price)
         data.append("ingredients", ingredients)
-
+        if(!image){
+            return alert("Por favor escolha uma imagem!")
+        }
 
         if(newIngredient){
             return alert("O campo de adicionar produto precisa estar vazio!")
@@ -126,7 +128,7 @@ export function Edit(){
                         <p>Nome</p>
                         <Input value={name} onChange={e => setName(e.target.value)} type="text" id="nome" placeholder="Ex: Salada Ceasar" />
                     </div>
-                    <div className="categoria">
+                    <div className="category">
                         <p>Categoria</p>
                         <div>
                             <FiChevronDown/>
@@ -164,13 +166,13 @@ export function Edit(){
                             />
                         </div>
                     </div>
-                        <Input value={price} onChange={e => setPrice(e.target.value)} type="number" id="preco" placeholder="R$00,00" label="Preço" />
+                    <Input value={price} onChange={e => setPrice(e.target.value)} type="number" id="preco" placeholder="R$00,00" label="Preço" />
                 </div> 
                 
                 <TextArea value={description} onChange={e => setDescription(e.target.value)}  placeholder="Fale brevemente sobre o prato, seus ingredientes e composição" label="Descrição" />
                 <div className="button">
-                    <Button onClick={handleRemoveProduct} title="Excluir prato"/>
-                    <Button onClick={handleUpdateProduct} title="Salvar alterações"/>
+                    <Button onClick={() => handleRemoveProduct()} title="Excluir prato"/>
+                    <Button onClick={() => handleUpdateProduct()} title="Salvar alterações"/>
                 </div>
             
             </Form>

@@ -42,40 +42,58 @@ export const Form = styled.form`
         font-family: Poppins, sans-serif;
         font-size: 3rem;
     }
-    .firstRow{
-      
-    }
 
     >.secondRow{
-        display: grid;
-        grid-template-columns: 4fr 1fr;
-        gap: 1.6rem;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        gap: 2.4rem;
         >div{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            gap: 1.6rem;
-            >p{
-                max-width: 100%;
-                font-family: Poppins, sans-serif;
-                color: ${({ theme })=> theme.COLORS.LIGHT_400};
-                font-size: 1.6rem;
-            }
-            >div{
-                background-color: ${({ theme })=> theme.COLORS.DARK_900};
-                height: auto;
-                border-radius: 0.8rem;
                 display: flex;
-                align-items: center;
-                flex-wrap: wrap;
-                height: 4.8rem;
+                flex-direction: column;
+                justify-content: space-evenly;
+                gap: 1.6rem;
+                >p{
+                    max-width: 100%;
+                    font-family: Poppins, sans-serif;
+                    color: ${({ theme })=> theme.COLORS.LIGHT_400};
+                    font-size: 1.6rem;
+                }
+                >div{
+                    background-color: ${({ theme })=> theme.COLORS.DARK_900};
+                    height: auto !important;
+                    border-radius: 0.8rem;
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    padding-top: 1rem;
+                }
+            }
+    }
+
+    
+    >.firstRow{
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+        p{
+            max-width: 100%;
+            font-family: Poppins, sans-serif;
+            color: ${({ theme })=> theme.COLORS.LIGHT_400};
+            font-size: 1.6rem;
+        }
+        div{
+            display: flex;
+            gap: 1rem;
+            flex-direction: column;
+        }
+        .name{
+            label{
+                display: none;
             }
         }
-    }
-    >div{
-        display: grid;
        
-        >.categoria{
+        >.category{
           
             >div{
                 width: 100%;
@@ -88,9 +106,10 @@ export const Form = styled.form`
                     font-size: 2rem;
                     position: absolute;
                     right: 1.6rem;
+                    top: 25%;
                 }
                 >select{
-                    font-size: 1%.4;
+                    font-size: 1.4rem;
                     padding: 1.3rem 1.6rem;
                     width: 100%;
                     height: 4.8rem;
@@ -109,9 +128,17 @@ export const Form = styled.form`
     
 }
     .button{
-        max-width: max-content;
+        width: max-content;
         display: flex;
         justify-self: flex-end;
+        gap: 3.2rem;
+        >button:nth-child(1){
+            background-color: ${({ theme })=> theme.COLORS.DARK_900};
+
+        }
+        >button{
+            width: max-content;
+        }
     }
    
 
@@ -120,28 +147,21 @@ export const Form = styled.form`
         padding: 2rem 10.2rem;
     }
 
-    @media(min-width: 820px) {
+    @media(min-width: 920px) {
 
         >.firstRow{
             display: grid;
             grid-template-columns: 2fr 4fr 3fr;
             gap: 1.6rem;
-            >.name{
-                label{
-                    display: none;
-                }
-            }
-            div{
-                display: flex;
-                gap: 1.6rem;
-                flex-direction: column;
-                >p{
-                    max-width: 100%;
-                    font-family: Poppins, sans-serif;
-                    color: ${({ theme })=> theme.COLORS.LIGHT_400};
-                    font-size: 1.6rem;
-                }
-            }
+           
+        }
+    }
+    @media(min-width: 1168px) {
+        >.secondRow{
+            display: grid;
+            grid-template-columns: 4fr 1fr;
+            gap: 1.6rem;
+            
         }
     }
 `

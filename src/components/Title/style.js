@@ -4,6 +4,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    margin: auto;
     cursor: pointer;
     >div{
         display: flex;
@@ -20,6 +21,10 @@ export const Container = styled.div`
         font-weight: 400;
         font-size: 12px;
         color: ${({ theme })=> theme.COLORS.LIGHT_400};
+    }
+
+    @media(min-width: 1100px) {
+        margin: 0;
     }
     
 `

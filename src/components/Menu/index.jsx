@@ -7,8 +7,11 @@ import { Link, useNavigate } from "react-router-dom"
 
 import { useAuth } from "../../hooks/auth"
 
+
 export function Menu({onClick}) {  
         const { SignOut } = useAuth()
+        const { user } = useAuth()
+
         return(
             <Container>
                 <Header>
@@ -19,8 +22,13 @@ export function Menu({onClick}) {
                         <FiSearch />
                         <input placeholder="Busque por pratos ou ingredientes"/>
                     </Input>
-                    <Link to="/new" type="button" >Novo prato</Link>
-                    <Button onClick={SignOut} title="Sair" />
+                    {
+                        user.id == "1" ? <>
+                            <Link to="/new" type="button" >Novo prato</Link>
+                            <Button onClick={SignOut} title="Sair" />
+                        </>
+                        :<Button onClick={SignOut} title="Sair" />
+                    }
                 </Main>
                 <Footer/>
             </Container>

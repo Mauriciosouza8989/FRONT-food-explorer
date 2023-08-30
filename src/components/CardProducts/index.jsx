@@ -2,20 +2,24 @@ import { Container } from "./style"
 import { useAuth } from "../../hooks/auth"
 import { FiChevronRight, FiPlus, FiMinus, FiHeart, FiEdit3 } from "react-icons/fi"
 import { Button } from "../Button"
-import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
+import { useState, useEffect } from "react";
+import { FaHeart } from "react-icons/fa";
 
 
-export function CardProducts({ onClick, img,alt, name, preco, product_id}){
+
+export function CardProducts({ onClick, img, alt, name, preco, product_id, heart}){
     const {user} = useAuth()
     const navigate = useNavigate()
+
         function handleClick(product_id){
             user.id == "1" ? navigate(`/edit/${product_id}`) : addFavorit(product_id)
         }
 
         async function addFavorit(product_id){
             await api.post(`/favorites/${product_id}`)
+            return location.reload()
         }
 
         async function handleRemoveProduct(){
@@ -34,11 +38,13 @@ export function CardProducts({ onClick, img,alt, name, preco, product_id}){
             }
         }
 
-    
+        
+
     return(
         <Container>
             {
-                user.id == "1" ? <button onClick={() => handleClick(product_id)}><FiEdit3 /></button> : <button onClick={() => handleClick(product_id)}><FiHeart /></button>
+                user.id == "1" ? <button onClick={() => handleClick(product_id)}><FiEdit3 />
+                </button> : <button onClick={() => addFavorit(product_id)}>{heart}</button>
             }
             <img src={img} alt={alt} />
             <button onClick={onClick} className="details"><p>{name} <FiChevronRight /></p></button>

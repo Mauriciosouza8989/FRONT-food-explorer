@@ -13,6 +13,10 @@ export const Container = styled.div`
     padding: 2.4rem ;
     gap: 1.2rem;
     position: relative;
+    >button{
+        z-index: 9;
+    }
+   
    
     >.details{
         background-color: transparent;
@@ -71,6 +75,7 @@ export const Container = styled.div`
         }
         svg{
             font-size: 2rem;
+            z-index: 10;
         }
         button{
             border: none;
