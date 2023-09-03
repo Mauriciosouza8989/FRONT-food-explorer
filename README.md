@@ -10,7 +10,8 @@ Uma aplicação criada de ponta a ponta com front-end e back-end, sendo utilizad
 
 [link-do-projeto](https://link-da-documentação)
 
-##Acesse o back-end <a href="https://github.com/Mauriciosouza8989/API-food-explorer">back-end</a>&nbsp;&nbsp;&nbsp;
+## Acesse o back-end 
+<a href="https://github.com/Mauriciosouza8989/API-food-explorer">back-end</a>&nbsp;&nbsp;&nbsp;
 
 ## Tecnologias
 
