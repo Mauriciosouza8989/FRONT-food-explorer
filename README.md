@@ -10,9 +10,6 @@ Uma aplicação criada de ponta a ponta com front-end e back-end, sendo utilizad
 
 [link-do-projeto](https://link-da-documentação)
 
-## Acesse o back-end 
-<a href="https://github.com/Mauriciosouza8989/API-food-explorer">back-end</a>&nbsp;&nbsp;&nbsp;
-
 ## Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
@@ -43,3 +40,5 @@ E se desejar poderá fazer o LogOut para sair da aplicação.
 
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+# Veja o back-end 
+<a href="https://github.com/Mauriciosouza8989/API-food-explorer">back-end</a>&nbsp;&nbsp;&nbsp;
