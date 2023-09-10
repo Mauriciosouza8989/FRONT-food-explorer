@@ -45,6 +45,9 @@ export function New(){
         if(newIngredient){
             return alert("O campo de adicionar produto precisa estar vazio!")
         }
+        if(!name || !description || !category || !price || !ingredients || !image){
+            return alert("Preencha todos os campos")
+        }
         try{
             await api.post("/products",data, {
                 headers: {

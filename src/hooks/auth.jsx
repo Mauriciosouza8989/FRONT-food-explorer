@@ -20,7 +20,7 @@ function AuthProvider({children}){
                 if(error.response){
                     alert(error.response.data.message)
                 }else{
-                    alert("Não foi possível logar!")
+                    alert(error)
                 }
             }
     }

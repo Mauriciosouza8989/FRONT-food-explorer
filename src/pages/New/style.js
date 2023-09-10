@@ -133,7 +133,7 @@ export const Form = styled.form`
         justify-self: flex-end;
         gap: 3.2rem;
         >button:nth-child(1){
-            background-color: ${({ theme })=> theme.COLORS.DARK_900};
+            background-color: ${({ theme })=> theme.COLORS.TOMATO-200};
 
         }
         >button{
