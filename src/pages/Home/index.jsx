@@ -77,7 +77,7 @@ export function Home(){
                 {
                 search.length == 0 &&
                 <Presentation>
-                    <img src="../../../src/assets/home.png" />
+                    <img src="../../assets/home.png" />
                     <div>
                         <h2>Sabores inigualáveis</h2>
                         <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
