@@ -16,7 +16,13 @@ export function SignIn(){
   
 
     function handleSignIn(){
-        signIn({email, password})
+        try{
+            signIn({email, password})
+        }
+        catch(err){
+            alert(err.response.data.msg)
+        }
+        return
     }
 
     return(
