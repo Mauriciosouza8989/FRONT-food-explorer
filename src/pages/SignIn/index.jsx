@@ -4,6 +4,8 @@ import { Form } from "../../components/Form"
 import { Button } from "../../components/Button"
 import { Link } from "react-router-dom"
 import { Title } from "../../components/Title"
+import { useRef } from "react"
+
 
 import { useState } from "react"
 
@@ -13,9 +15,12 @@ export function SignIn(){
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const {signIn} = useAuth()
+    const buttonLogin = useRef(null)
   
 
     function handleSignIn(){
+        buttonLogin.current.disabled = true
+
         try{
             signIn({email, password})
         }
@@ -44,7 +49,7 @@ export function SignIn(){
                     onChange={e => setPassword(e.target.value)}
                 />
                 {
-                     !email || password.length<6 ? <Button title="Entrar" disabled/> : <Button title="Entrar" onClick={handleSignIn}/>
+                     !email || password.length<6 ? <button disabled>Entrar</button> : <button ref={buttonLogin} onClick={handleSignIn}>Entrar</button>
 
                 }
                 <Link to="/register">Criar conta</Link>
