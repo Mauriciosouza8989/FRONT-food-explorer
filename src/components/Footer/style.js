@@ -6,6 +6,7 @@ export const Container = styled.footer`
     background-color: ${({theme})=> theme.COLORS.DARK_600};
     position: relative;
     bottom: 0;
+    left: 0;
     display: flex;
     align-items: center;
     justify-content: space-around;

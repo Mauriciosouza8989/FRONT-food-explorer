@@ -26,9 +26,13 @@ function AuthProvider({children}){
     }
 
     function SignOut(){
-        localStorage.removeItem("@food_explorer:token")
-        localStorage.removeItem("@food_explorer:user")
-        setData({})
+        const confirmSignOut = confirm("Tem certeza que deseja sair?")
+        if(confirmSignOut){
+            localStorage.removeItem("@food_explorer:token")
+            localStorage.removeItem("@food_explorer:user")
+            setData({})
+        }
+        return
     }
 
     useEffect(()=>{

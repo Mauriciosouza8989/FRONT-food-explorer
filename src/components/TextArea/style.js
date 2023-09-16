@@ -22,6 +22,7 @@ export const Input = styled.textarea`
     padding: 1.4rem;
     font-size: 1.8rem;
     cursor: pointer;
+    resize: none;
 
 
     :placeholder{

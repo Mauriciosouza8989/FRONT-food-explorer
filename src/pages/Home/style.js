@@ -54,6 +54,7 @@ export const Main = styled.main`
         margin-left: 1rem;
     }
 
+
    
 
     @media (min-width:880px){

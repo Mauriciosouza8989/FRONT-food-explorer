@@ -9,6 +9,10 @@ export const Container = styled.div`
     gap: 7rem;
     flex-direction: column;
     align-items: center;
+    >div{
+        margin-bottom: 0;
+        margin-top: 8rem;
+    }
     form {
         button{
             border: none;
@@ -21,9 +25,12 @@ export const Container = styled.div`
             &:disabled{
                 background-color: ${({ theme })=> theme.COLORS.THINTS.TOMATO_400};
             }
+            
         }
 
     }
+
+
 
     @media(min-width: 820px) {
         display: flex;
@@ -31,4 +38,24 @@ export const Container = styled.div`
         justify-content: space-around;
     }
     
+`
+export const Loading = styled.span`
+    width: 24px;
+    height: 24px;
+    display: block;
+    border: 5px solid #fff;
+    background-color: transparent;
+    border-right: 5px solid transparent;
+    margin: auto;
+    border-radius: 50%;
+    animation: loading 1s ease-in-out infinite;
+
+    @keyframes loading {
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    }
 `

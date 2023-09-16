@@ -1,10 +1,10 @@
-import { Container } from "../SignIn/style"
+import { Container,Loading } from "../SignIn/style"
 import { Form } from "../../components/Form"
 import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
 import { Link, useNavigate } from "react-router-dom"
 import { Title } from "../../components/Title"
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 import { api } from "../../services/api"
 
@@ -13,7 +13,10 @@ export function SignUp(){
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [buttonValue, setButtonValue] = useState("Criar conta")
     const navigate = useNavigate()
+
+    const buttonLogin = useRef(null)
 
     function handleSignUp(e) {
         e.preventDefault()
@@ -24,6 +27,8 @@ export function SignUp(){
         if(password.length < 6){
             return alert("A sua senha precisa ter pelomenos 6 caracteres!")
         }
+        buttonLogin.current.disabled = true
+        setButtonValue(<Loading/>)
 
         api.post("/users", {name, email, password})
         .then(()=> {
@@ -31,6 +36,8 @@ export function SignUp(){
             alert("Usuário cadastrado com sucesso!")
         })
         .catch(err => {
+            buttonLogin.current.disabled = false
+            setButtonValue("Criar conta")
             if(err.response){
                 alert(err.response.data.message)
             }else{
@@ -66,7 +73,7 @@ export function SignUp(){
                 />
 
                 {
-                    !name || !email || password.length<6 ? <Button disabled title="Criar conta" /> : <Button onClick={(e) => handleSignUp(e)} title="Criar conta" />
+                    !name || !email || password.length<6 ? <Button disabled title="Criar conta" /> : <button ref={buttonLogin} onClick={(e) => handleSignUp(e)}>{buttonValue}</button>
                 }
                 <Link to="/">Já tenho conta</Link>
             </Form>
