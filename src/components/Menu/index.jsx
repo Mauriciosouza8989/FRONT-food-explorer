@@ -3,7 +3,7 @@ import { FiX, FiSearch } from "react-icons/fi"
 import { Footer } from "../Footer"
 import { ButtonText } from "../ButtonText"
 import { Button } from "../Button"
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import { useAuth } from "../../hooks/auth"
 
@@ -23,7 +23,7 @@ export function Menu({onClick}) {
                         <input placeholder="Busque por pratos ou ingredientes"/>
                     </Input>
                     {
-                        user.id == "1" ? <>
+                        user.role == "admin" ? <>
                             <Link to="/new" type="button" >Novo prato</Link>
                             <Button onClick={SignOut} title="Sair" />
                         </>

@@ -14,7 +14,7 @@ export function Title({size, onClick}){
                 <h1>food explorer</h1>
             </div>
             {
-                user && user.id == "1" ? <span>admin</span> : ''
+                user && user.role == "admin" ? <span>admin</span> : ''
             }
         </Container>
     )

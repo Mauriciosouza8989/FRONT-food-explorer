@@ -4,8 +4,7 @@ import { FiChevronRight, FiPlus, FiMinus, FiHeart, FiEdit3 } from "react-icons/f
 import { Button } from "../Button"
 import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
-import { useState, useEffect } from "react";
-import { FaHeart } from "react-icons/fa";
+
 
 
 
@@ -14,7 +13,7 @@ export function CardProducts({ onClick, img, alt, name, preco, product_id, heart
     const navigate = useNavigate()
 
         function handleClick(product_id){
-            user.id == "1" ? navigate(`/edit/${product_id}`) : addFavorit(product_id)
+            user.role == "admin" ? navigate(`/edit/${product_id}`) : addFavorit(product_id)
         }
 
         async function addFavorit(product_id){
@@ -43,7 +42,7 @@ export function CardProducts({ onClick, img, alt, name, preco, product_id, heart
     return(
         <Container>
             {
-                user.id == "1" ? <button onClick={() => handleClick(product_id)}><FiEdit3 />
+                user.role == "admin" ? <button onClick={() => handleClick(product_id)}><FiEdit3 />
                 </button> : <button onClick={() => addFavorit(product_id)}>{heart}</button>
             }
             <img src={img} alt={alt} />
@@ -54,7 +53,7 @@ export function CardProducts({ onClick, img, alt, name, preco, product_id, heart
                 <span>01</span>
                 <button><FiPlus /></button>
             </div>
-            { user.id == "1" ? <Button title="excluir" onClick={handleRemoveProduct} /> : <Button title="Incluir" />}
+            { user.role == "admin" ? <Button title="excluir" onClick={handleRemoveProduct} /> : <Button title="Incluir" />}
         </Container>
 
     )

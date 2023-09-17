@@ -6,10 +6,6 @@ import { FaThemeco } from "react-icons/fa";
 export function Footer(){
     return(
         <Container>
-            {/* <img 
-                src="../../assets/PolygonFooter.png" 
-                alt="imagem de um poligono"
-            /> */}
             <div>
                 <FaThemeco /> <h1>food explorer</h1>
             </div>

@@ -42,7 +42,7 @@ export function SignIn(){
             <Form title="Fça login">
                 <Input 
                     type="email" 
-                    placeholder="exemplo:exemplo@exemplo.com" 
+                    placeholder="exemplo@exemplo.com"
                     label="E-mail" 
                     id="email" 
                     onChange={e => setEmail(e.target.value)}

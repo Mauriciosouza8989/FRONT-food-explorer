@@ -4,8 +4,8 @@ import { Title } from "../Title"
 import { ButtonText } from "../ButtonText"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../../hooks/auth"
-import { useEffect, useState } from "react"
-import { api } from "../../services/api"
+import { useState } from "react"
+
 
 
 
@@ -45,7 +45,7 @@ export function DesktopHeader({onChange}){
             </Search>
             {
 
-               user.id == "1" ? <Button onClick={newPlate}>Novo prato</Button> : <Button><img src="https://i.ibb.co/2g3sXfL/Receipt.png" /><p>pedidos <span>({user.cart||0})</span></p></Button>
+               user.role == "admin" ? <Button onClick={newPlate}>Novo prato</Button> : <Button><img src="https://i.ibb.co/2g3sXfL/Receipt.png" /><p>pedidos <span>({user.cart||0})</span></p></Button>
             }
 
             <ButtonText onClick={handleSignOut} title={<FiLogOut />} />

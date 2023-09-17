@@ -35,7 +35,7 @@ export function Header(){
             </Button>
             <Title size={30} onClick={home}/>
             {
-                user.id != "1" && <Cart />
+                user.role != "admin" && <Cart />
             }
             
         </Container>
