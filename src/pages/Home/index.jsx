@@ -64,6 +64,7 @@ export function Home(){
         useEffect(()=>{
             async function getFavorites(){
                 const response = await api.get(`/favorites`)
+                alert(favorites)
                 response.data.map(fav => setFavorites(prevState => [...prevState, fav.product_id]))
             }
         getFavorites()

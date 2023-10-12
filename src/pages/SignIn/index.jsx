@@ -3,10 +3,10 @@ import { Input } from "../../components/Input"
 import { Form } from "../../components/Form"
 import { Link } from "react-router-dom"
 import { Title } from "../../components/Title"
-import { useRef } from "react"
+import { useRef, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 
-import { useState } from "react"
 
 import { useAuth } from "../../hooks/auth"
 
@@ -16,21 +16,20 @@ export function SignIn(){
     const [buttonValue, setButtonValue] = useState("Entrar")
     const {signIn} = useAuth()
     const buttonLogin = useRef(null)
-  
-
+    const navigate = useNavigate()
+    
     function handleSignIn(e){
         e.preventDefault()
         buttonLogin.current.disabled = true
         setButtonValue(<Loading/>)
-
             signIn({email, password})
             .then(()=> {
                 navigate("/")
             })
             .catch(err =>{
-                buttonLogin.current.disabled = false
-                setButtonValue("Entrar")
-                alert(err.response.data.msg)
+                setButtonValue("Entrar");
+                buttonLogin.current.disabled = false;
+                alert(err.response.data.message)
             })
 
         
