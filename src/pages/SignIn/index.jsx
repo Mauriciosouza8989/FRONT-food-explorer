@@ -18,19 +18,20 @@ export function SignIn(){
     const buttonLogin = useRef(null)
     const navigate = useNavigate()
     
-    function handleSignIn(e){
+    async function handleSignIn(e){
         e.preventDefault()
         buttonLogin.current.disabled = true
         setButtonValue(<Loading/>)
+        try{
             signIn({email, password})
             .then(()=> {
                 navigate("/")
             })
-            .catch(err =>{
-                setButtonValue("Entrar");
-                buttonLogin.current.disabled = false;
-                alert(err.response.data.message)
-            })
+        }catch(err){
+            setButtonValue("Entrar");
+            buttonLogin.current.disabled = false;
+            alert(err.response.data.message)
+        }
 
         
     }
