@@ -128,17 +128,31 @@ export const Form = styled.form`
     
 }
     .button{
-        width: max-content;
+        width: 100%;
         display: flex;
         justify-self: flex-end;
         gap: 3.2rem;
         >button:nth-child(1){
+            border: none;
+            border-radius: .8rem;
+            width: 100%;
+            padding: 12px;
+            font-size: 1.4rem;
             background-color: ${({ theme })=> theme.COLORS.DARK_900};
-
         }
-        >button{
-            width: max-content;
+        >button:nth-child(2){
+            border: none;
+            border-radius: .8rem;
+            width: 100%;
+            padding: 12px;
+            font-size: 1.4rem;
+            background-color: ${({ theme })=> theme.COLORS.THINTS.TOMATO_100};
+            color: ${({ theme })=> theme.COLORS.LIGHT_100};
+            &:disabled{
+                background-color: ${({ theme })=> theme.COLORS.THINTS.TOMATO_400};
+            }
         }
+        
     }
    
 

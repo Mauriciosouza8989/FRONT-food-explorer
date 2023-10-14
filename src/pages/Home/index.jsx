@@ -62,9 +62,12 @@ export function Home(){
 
         
         useEffect(()=>{
+            
             async function getFavorites(){
+                if(favorites.length <= 0){
+                    return
+                }
                 const response = await api.get(`/favorites`)
-                alert(favorites)
                 response.data.map(fav => setFavorites(prevState => [...prevState, fav.product_id]))
             }
         getFavorites()

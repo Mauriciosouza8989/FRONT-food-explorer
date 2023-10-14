@@ -12,14 +12,14 @@ export function CardProducts({ onClick, img, alt, name, preco, product_id, heart
     const {user} = useAuth()
     const navigate = useNavigate()
 
-        function handleClick(product_id){
-            user.role == "admin" ? navigate(`/edit/${product_id}`) : addFavorit(product_id)
-        }
-
         async function addFavorit(product_id){
             await api.post(`/favorites/${product_id}`)
             return location.reload()
         }
+        function handleClick(product_id){
+            user.role == "admin" ? navigate(`/edit/${product_id}`) : addFavorit(product_id)
+        }
+
 
         async function handleRemoveProduct(){
             const deleteConfirm = confirm("Tem certeza que deseja excluir este produto?")

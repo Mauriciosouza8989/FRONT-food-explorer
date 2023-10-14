@@ -50,22 +50,23 @@ export function Edit(){
         if(!image){
             return alert("Por favor escolha uma imagem!")
         }
-
-        if(!name || !description || !category || !price || !ingredients || !image){
+        
+        if(!name || !description || !category || !price || !ingredients){
             return alert("Preencha todos os campos")
         }
-
+        
         if(newIngredient){
-            return alert("O campo de adicionar produto precisa estar vazio!")
+            return alert("O campo de adicionar ingrediente precisa estar vazio!")
         }
-
+        
         try{
             await api.update(`/products/${params.product_id}`,data, {
                 headers: {
                     "Content-Type": `multipart/form-data`
                 }
             })
-            alert("Produto criado com sucesso!")
+            console.log('Updating product')
+            alert("Produto atualizado com sucesso!")
             navigate("/")
         }catch(e){
             if(e.response){
@@ -175,8 +176,8 @@ export function Edit(){
                 
                 <TextArea value={description} onChange={e => setDescription(e.target.value)}  placeholder="Fale brevemente sobre o prato, seus ingredientes e composição" label="Descrição" />
                 <div className="button">
-                    <Button onClick={() => handleRemoveProduct()} title="Excluir prato"/>
-                    <Button onClick={() => handleUpdateProduct()} title="Salvar alterações"/>
+                    <button type="button" onClick={handleRemoveProduct}>Excluir prato</button>
+                    <button type="button" onClick={()=> handleUpdateProduct()}>Salvar alterações</button>
                 </div>
             
             </Form>
