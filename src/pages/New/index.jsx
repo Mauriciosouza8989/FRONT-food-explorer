@@ -83,7 +83,7 @@ export function New(){
                             <FiChevronDown/>
                             <select onChange={e => setCategory(e.target.value)}>
                                 <option value="">Categoria</option>
-                                <option value="Refeicao">Refeição</option>
+                                <option value="Refeicao">Refeicao</option>
                                 <option value="Sobremesa">Sobremesa</option>
                                 <option value="Bebidas">Bebida</option>
                             </select>
