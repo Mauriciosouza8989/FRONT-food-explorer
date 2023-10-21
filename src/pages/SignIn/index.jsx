@@ -20,16 +20,14 @@ export function SignIn(){
     
     async function handleSignIn(e){
         e.preventDefault()
-        buttonLogin.current.disabled = true
         setButtonValue(<Loading/>)
         try{
             signIn({email, password})
             .then(()=> {
                 navigate("/")
+                setButtonValue("Entrar");
             })
         }catch(err){
-            setButtonValue("Entrar");
-            buttonLogin.current.disabled = false;
             alert(err.response.data.message)
         }
 
