@@ -27,7 +27,7 @@ export function SignIn(){
             .then(()=> {
                 buttonLogin.current.disabled = false;
                 setButtonValue("Entrar");
-                navigate("/")
+                navigate("/");
             })
         }catch(err){
             alert(err.response.data.message)
