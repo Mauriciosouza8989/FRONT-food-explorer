@@ -8,8 +8,9 @@ import { Input } from "../../components/Input"
 import { TextArea } from "../../components/TextArea"
 import { Button } from "../../components/Button"
 import { Tags } from "../../components/Tags"
-import { useState } from "react"
 import { api } from "../../services/api"
+import { Loading } from "../SignIn/style"
+import { useRef, useState } from "react"
 
 export function New(){
     const [ingredients, setIngredients] = useState([])
@@ -19,6 +20,7 @@ export function New(){
     const [price, setPrice] = useState(0)
     const [description, setDescription] = useState("")
     const [image, setImage] = useState(null)
+    const [buttonValue, setButtonValue] = useState("Salvar alterações")
 
 
     const navigate = useNavigate()
@@ -35,6 +37,7 @@ export function New(){
     }
 
     async function handleCreateProduct(){
+        setButtonValue(<Loading />)
         const data = new FormData()
         data.append("image", image)
         data.append("name", name)
@@ -43,9 +46,11 @@ export function New(){
         data.append("price", price)
         data.append("ingredients", ingredients)
         if(newIngredient){
+            setButtonValue("Salvar alterações")
             return alert("O campo de adicionar produto precisa estar vazio!")
         }
         if(!name || !description || !category || !price || !ingredients || !image){
+            setButtonValue("Salvar alterações")
             return alert("Preencha todos os campos")
         }
         try{
@@ -56,8 +61,9 @@ export function New(){
             })
             alert("Produto criado com sucesso!")
             navigate("/")
-        }catch(e){
-            console.log("Error: " + e.message)
+        }catch(err){
+            setButtonValue("Salvar alterações")
+            alert("Error: " + err.response.data.message)
         }
     }
 
@@ -120,7 +126,7 @@ export function New(){
                 
                 <TextArea onChange={e => setDescription(e.target.value)}  placeholder="Fale brevemente sobre o prato, seus ingredientes e composição" label="Descrição" />
                 <div className="button">
-                    <Button onClick={handleCreateProduct} title="Salvar alterações"/>
+                    <Button onClick={handleCreateProduct} title={buttonValue}/>
                 </div>
             
             </Form>
