@@ -6,7 +6,6 @@ import { Link, useNavigate, useParams} from "react-router-dom"
 import { FiChevronLeft,FiShare, FiChevronDown } from "react-icons/fi"
 import { Input } from "../../components/Input"
 import { TextArea } from "../../components/TextArea"
-import { Button } from "../../components/Button"
 import { Tags } from "../../components/Tags"
 import { useState, useEffect } from "react"
 import { api } from "../../services/api"
@@ -60,14 +59,13 @@ export function Edit(){
         }
         
         try{
-            await api.update(`/products/${params.product_id}`,data, {
+            await api.put(`/products/${params.product_id}`,data, {
                 headers: {
                     "Content-Type": `multipart/form-data`
                 }
             })
-            
-            alert("Produto atualizado com sucesso!")
             navigate("/")
+            alert("Produto atualizado com sucesso!")
         }catch(e){
             if(e.response){
                 alert(e.response.data.message)
