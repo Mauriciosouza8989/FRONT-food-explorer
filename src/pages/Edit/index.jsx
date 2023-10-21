@@ -65,7 +65,7 @@ export function Edit(){
                     "Content-Type": `multipart/form-data`
                 }
             })
-            console.log('Updating product')
+            
             alert("Produto atualizado com sucesso!")
             navigate("/")
         }catch(e){
@@ -139,7 +139,7 @@ export function Edit(){
                             <FiChevronDown/>
                             <select value={product.category || category} onChange={e => setCategory(e.target.value)}>
                                 <option value="">Categoria</option>
-                                <option value="Refeicao">Refeição</option>
+                                <option value="Refeicao">Refeicao</option>
                                 <option value="Sobremesa">Sobremesa</option>
                                 <option value="Bebidas">Bebida</option>
                             </select>
