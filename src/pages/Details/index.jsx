@@ -52,6 +52,21 @@ export  function Details() {
       }
       setAmount(amount - 1)
    }
+   async function handleRemoveProduct(){
+      const deleteConfirm = confirm("Tem certeza que deseja excluir este produto?")
+      if(deleteConfirm){
+
+          try{
+              await api.delete(`/products/${params.product_id}`)
+              alert("Produto excluido com sucesso!")
+              navigate("/")
+          }catch(e){
+              if(e.response){
+                  alert(e.response.data.message)
+              }
+          }
+      }
+  }
    
    
 
@@ -85,7 +100,7 @@ export  function Details() {
                      </div>
 }
                   {
-                     user.id == "1" ? <Button>Excluir produto</Button> : <Button>Incluir R$ {`${(product.price * amount).toFixed(2)}`} </Button>
+                     user.id == "1" ? <Button onClick={handleRemoveProduct}>Excluir produto</Button> : <Button>Incluir R$ {`${(product.price * amount).toFixed(2)}`} </Button>
 
                   }
                      
