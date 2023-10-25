@@ -8,7 +8,7 @@ Uma aplicação criada de ponta a ponta com front-end e back-end, sendo utilizad
 
 ## Acesse o Projeto
 
-[link-do-projeto](https://link-da-documentação)
+[link-do-projeto](https://front-food-explorer.netlify.app)
 
 ## Tecnologias
 
